@@ -1,10 +1,9 @@
 import React from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { Link } from "react-router-dom";
-import {
-  AiFillPlusCircle,
-} from "react-icons/ai";
-function Nav(props) {
+import { AiFillPlusCircle } from "react-icons/ai";
+
+function Nav() {
   return (
     <>
       <div id="home" className="nav">

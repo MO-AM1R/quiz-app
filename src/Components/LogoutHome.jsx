@@ -1,6 +1,5 @@
 import React from "react";
 import "./LogoutHome.css";
-
 import Nav from "./Nav";
 import BodyHome from "./BodyHome";
 import Footer from "./Footer";

@@ -1,7 +1,7 @@
 import React from "react";
 import LogoutHome from "./LogoutHome";
-import StudentHome from "./StudentHome.jsx";
-import InstructorHome from "./InstructorHome.jsx";
+import StudentHome from "./StudentHome";
+import InstructorHome from "./InstructorHome";
 import { useLocation } from "react-router-dom";
 import "./Home.css";
 
