@@ -12,6 +12,7 @@ function App() {
     initializeInstructors();
   }, []);
 
+  
   return (
     <>
       <Routes>
