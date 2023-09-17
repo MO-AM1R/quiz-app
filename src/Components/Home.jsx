@@ -1,6 +1,6 @@
 import React from "react";
 import LogoutHome from "./LogoutHome";
-import StudentHome from "./StudentHome";
+import StudentHome from "./StudentHome.jsx";
 import InstructorHome from "./InstructorHome.jsx";
 import { useLocation } from "react-router-dom";
 import "./Home.css";
@@ -13,9 +13,9 @@ function Home(props) {
       {!props.logIn ? (
         <LogoutHome />
       ) : location.state?.isInstructor ? (
-        <StudentHome />
-      ) : (
         <InstructorHome />
+      ) : (
+        <StudentHome />
       )}
     </>
   );

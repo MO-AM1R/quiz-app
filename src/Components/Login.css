@@ -220,6 +220,7 @@
   z-index: 100;
   transition: all 0.5s;
   font-size: 1.3rem;
+  width: fit-content;
 }
 
 .user-info.password:focus ~ .show-pass,

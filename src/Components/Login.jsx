@@ -76,14 +76,14 @@ function Login() {
                   required
                 />
                 <label className="input-label">Password</label>
+
+                <span onClick={toggleShowPass} className="show-pass icon">
+                  {showed ? <AiFillEye /> : <AiFillEyeInvisible />}
+                </span>
                 <span
                   style={{ display: res == 0 ? "block" : "none", color: "red" }}
                 >
                   Password is incorrect
-                </span>
-
-                <span onClick={toggleShowPass} className="show-pass icon">
-                  {showed ? <AiFillEye /> : <AiFillEyeInvisible />}
                 </span>
               </div>
             </div>

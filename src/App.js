@@ -17,10 +17,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route
-          path="/"
-          element={<Home logIn={false} instractor={false} />}
-        ></Route>
+        <Route path="/" element={<Home logIn={false} />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route
