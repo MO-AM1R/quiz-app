@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import {
   AiFillPlusCircle,
 } from "react-icons/ai";
-function Input(props) {
+function Nav(props) {
   return (
     <>
       <div id="home" className="nav">
@@ -51,4 +51,4 @@ function Input(props) {
   );
 }
 
-export default Input;
+export default Nav;
