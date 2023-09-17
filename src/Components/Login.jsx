@@ -12,6 +12,7 @@ function Login() {
 
   const [res, setRes] = useState(10);
   const [showed, setShowed] = useState(false);
+  const [isInstructor, setisInstructor] = useState(Boolean);
 
   const toggleShowPass = () => {
     setShowed(!showed);
@@ -34,14 +35,16 @@ function Login() {
 
     if (res1 == -1) {
       setRes(res2);
+      setisInstructor(true);
     } else if (res2 == -1) {
       setRes(res1);
+      setisInstructor(false);
     }
   };
 
   useEffect(() => {
     if (res === 1) {
-      history.push("/home");
+      history.replace("/home", { isInstructor });
       history.go();
     }
   }, [res, history]);

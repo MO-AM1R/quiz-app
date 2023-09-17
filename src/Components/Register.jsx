@@ -40,6 +40,41 @@ function Register() {
     }
     return true;
   };
+
+  async function addInstructorToDb(instructor) {
+    instructor.Job = university_jobField.current.value;
+    instructor.Quizzes = [];
+    let res = await checkInstructor(instructor);
+
+    if (res === -1) {
+      await addInstructor(instructor);
+      history.push("/");
+      history.go();
+    } else {
+      setError(true);
+      setTimeout(() => {
+        setError(false);
+      }, 1000);
+    }
+  }
+
+  async function addStudentToDb(student) {
+    student.Faculty = facultyField.current.value;
+    student.University = university_jobField.current.value;
+    let res = await checkStudent(student);
+
+    if (res == -1) {
+      await addStudent(student);
+      history.push("/home");
+      history.go();
+    } else {
+      setError(true);
+      setTimeout(() => {
+        setError(false);
+      }, 2000);
+    }
+  }
+
   const register = async () => {
     if (!check()) {
       return;
@@ -52,35 +87,9 @@ function Register() {
     };
 
     if (instructor) {
-      user.Job = university_jobField.current.value;
-      user.Quizzes = [];
-      let res = await checkInstructor(user);
-
-      if (res === -1) {
-        await addInstructor(user);
-        history.push("/");
-        history.go();
-      } else {
-        setError(true);
-        setTimeout(() => {
-          setError(false);
-        }, 1000);
-      }
+      addInstructorToDb(user);
     } else {
-      user.Faculty = facultyField.current.value;
-      user.University = university_jobField.current.value;
-      let res = await checkStudent(user);
-
-      if (res == -1) {
-        await addStudent(user);
-        history.push("/home");
-        history.go();
-      } else {
-        setError(true);
-        setTimeout(() => {
-          setError(false);
-        }, 2000);
-      }
+      addStudentToDb(user);
     }
   };
 
