@@ -1,0 +1,285 @@
+.register-screen {
+  background-color: var(--fourth-color);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-container {
+  position: relative;
+  height: 80%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 1.5rem;
+  background-color: var(--first-color);
+  border-radius: 1rem;
+  box-shadow: 0 0 10px black;
+}
+
+.register-header {
+  padding: 0.5rem;
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 0.25rem;
+}
+
+.inputs {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.inputs .input-field {
+  width: 45%;
+}
+
+.input-field {
+  position: relative;
+  width: 100%;
+}
+
+.input-field input:not([type="checkbox"]) {
+  margin-bottom: 2rem;
+  position: relative;
+  background-color: transparent;
+  width: 90%;
+  height: 1.5rem;
+  outline: none;
+  font-size: 1.5rem;
+  border: none;
+  border-bottom: 0.1rem solid var(--fourth-color);
+  color: white;
+  padding: 0 0 0.5rem 0.5rem;
+}
+
+.input-field.password {
+  height: fit-content;
+}
+
+.input-field label:not([for="show-pass"]) {
+  color: white;
+  opacity: 1;
+  font-size: 1.5rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  transition: all 0.5s;
+}
+
+.show-pass {
+  position: absolute;
+  right: 1.5rem;
+  opacity: 0;
+  color: white;
+  z-index: 100;
+  transition: all 0.5s;
+  font-size: 1.3rem;
+}
+
+.input-field input:focus ~ label,
+.input-field input:valid ~ label {
+  top: -1.5rem;
+  font-size: 1rem;
+  color: var(--third-color);
+}
+
+.input-field.password input:focus ~ .show-pass,
+.input-field.password input:valid ~ .show-pass {
+  opacity: 1;
+}
+
+.register {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: max-content;
+}
+
+.register-btn {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  letter-spacing: 2px;
+  font-size: 1rem;
+  width: 8rem;
+  height: 3.5rem;
+  background-color: transparent;
+  color: var(--fourth-color);
+  border: none;
+  outline: none;
+}
+
+.register-btn:hover {
+  background-color: var(--fourth-color);
+  color: #000;
+  border-radius: 5px;
+  box-shadow: 0 0 5px var(--fourth-color), 0 0 25px var(--fourth-color),
+    0 0 50px var(--fourth-color), 0 0 100px var(--fourth-color);
+}
+
+.register-btn span {
+  display: block;
+  position: absolute;
+}
+
+.register-btn span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--fourth-color));
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+.register-btn span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, var(--fourth-color));
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+.register-btn span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, var(--fourth-color));
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+.register-btn span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, var(--fourth-color));
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
+
+.toggle-register {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: white;
+  text-decoration: none;
+}
+
+.toggle-register:hover {
+  color: var(--third-color);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  width: 100%;
+}
+
+@media (max-width: 700px) {
+  .inputs {
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .register-container {
+    height: 90vh;
+  }
+  .inputs .input-field {
+    width: 100%;
+  }
+  .toggle-register {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .register {
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20%;
+  }
+  .register-header {
+    font-size: 1rem;
+  }
+}
+
+@media (max-height: 770px) and (max-width: 700px) {
+  .inputs {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .inputs .input-field {
+    width: 40%;
+  }
+  .inputs .input-field label {
+    font-size: 1rem;
+  }
+}
