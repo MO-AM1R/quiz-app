@@ -15,7 +15,7 @@ function Register() {
 
   const [error, setError] = useState(false);
   const [showed, setShowed] = useState(false);
-  const [instructor, setInstructor] = useState(false);
+  const [instructor, setInstructor] = useState(true);
 
   const toggleShowPass = () => {
     setShowed(!showed);

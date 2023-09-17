@@ -1,6 +1,9 @@
 import React from "react";
-import "./Home.css";
+import LogoutHome from "./LogoutHome";
+import StudentHome from "./StudentHome";
+import InstructorHome from "./InstructorHome.jsx";
 import { useLocation } from "react-router-dom";
+import "./Home.css";
 
 function Home(props) {
   let location = useLocation();
@@ -8,11 +11,11 @@ function Home(props) {
   return (
     <>
       {!props.logIn ? (
-        <div className="home">Home</div>
+        <LogoutHome />
       ) : location.state?.isInstructor ? (
-        <div className="homeInstructor">Instructor Home</div>
+        <StudentHome />
       ) : (
-        <div className="homeStudent">Student Home</div>
+        <InstructorHome />
       )}
     </>
   );
