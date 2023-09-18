@@ -1,5 +1,6 @@
 import React from "react";
 import { Link as ScrollLink } from "react-scroll";
+import "./Footer.css";
 import {
   AiFillFacebook,
   AiFillLinkedin,
@@ -12,8 +13,8 @@ function Footer() {
   return (
     <>
       <footer>
-        <div class="footer-content">
-          <h3>Foolish Developer</h3>
+        <div className="footer-content">
+          <h3>Quiz App</h3>
           <p>
             Welcome to Quiz App, your ultimate destination for creating and
             taking quizzes. Whether you're an instructor looking to craft
@@ -21,7 +22,7 @@ function Footer() {
             platform offers a seamless and interactive learning experience. Join
             us in the quest for knowledge!
           </p>
-          <ul class="socials">
+          <ul className="socials">
             <li>
               <a>
                 <AiFillFacebook className="social-icon" />
@@ -49,12 +50,12 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div id="about" class="footer-bottom">
+        <div id="about" className="footer-bottom">
           <p>
             copyright &copy; <a>Mohamed Amir</a>
           </p>
-          <div class="footer-menu">
-            <ul class="f-menu">
+          <div className="footer-menu">
+            <ul className="f-menu">
               <li>
                 <ScrollLink
                   activeClass="active"

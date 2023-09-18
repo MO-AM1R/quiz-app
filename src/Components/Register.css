@@ -1,5 +1,5 @@
 .register-screen {
-  background-color: var(--fourth-color);
+  background-color: rgb(var(--fourth-color));
   height: 100vh;
   width: 100%;
   display: flex;
@@ -16,7 +16,7 @@
   justify-content: space-around;
   align-items: flex-start;
   padding: 1.5rem;
-  background-color: var(--first-color);
+  background-color: rgb(var(--first-color));
   border-radius: 1rem;
   box-shadow: 0 0 10px black;
 }
@@ -55,7 +55,7 @@
   outline: none;
   font-size: 1.5rem;
   border: none;
-  border-bottom: 0.1rem solid var(--fourth-color);
+  border-bottom: 0.1rem solid rgb(var(--fourth-color));
   color: white;
   padding: 0 0 0.5rem 0.5rem;
 }
@@ -89,7 +89,7 @@
 .input-field input:valid ~ label {
   top: -1.5rem;
   font-size: 1rem;
-  color: var(--third-color);
+  color: rgb(var(--third-color));
 }
 
 .input-field.password input:focus ~ .show-pass,
@@ -117,17 +117,17 @@
   width: 8rem;
   height: 3.5rem;
   background-color: transparent;
-  color: var(--fourth-color);
+  color: rgb(var(--fourth-color));
   border: none;
   outline: none;
 }
 
 .register-btn:hover {
-  background-color: var(--fourth-color);
+  background-color: rgb(var(--fourth-color));
   color: #000;
   border-radius: 5px;
-  box-shadow: 0 0 5px var(--fourth-color), 0 0 25px var(--fourth-color),
-    0 0 50px var(--fourth-color), 0 0 100px var(--fourth-color);
+  box-shadow: 0 0 5px rgb(var(--fourth-color)), 0 0 25px rgb(var(--fourth-color)),
+    0 0 50px rgb(var(--fourth-color)), 0 0 100px rgb(var(--fourth-color));
 }
 
 .register-btn span {
@@ -140,7 +140,7 @@
   left: -100%;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--fourth-color));
+  background: linear-gradient(90deg, transparent, rgb(var(--fourth-color)));
   animation: btn-anim1 1s linear infinite;
 }
 
@@ -159,7 +159,7 @@
   right: 0;
   width: 2px;
   height: 100%;
-  background: linear-gradient(180deg, transparent, var(--fourth-color));
+  background: linear-gradient(180deg, transparent, rgb(var(--fourth-color)));
   animation: btn-anim2 1s linear infinite;
   animation-delay: 0.25s;
 }
@@ -179,7 +179,7 @@
   right: -100%;
   width: 100%;
   height: 2px;
-  background: linear-gradient(270deg, transparent, var(--fourth-color));
+  background: linear-gradient(270deg, transparent, rgb(var(--fourth-color)));
   animation: btn-anim3 1s linear infinite;
   animation-delay: 0.5s;
 }
@@ -199,7 +199,7 @@
   left: 0;
   width: 2px;
   height: 100%;
-  background: linear-gradient(360deg, transparent, var(--fourth-color));
+  background: linear-gradient(360deg, transparent, rgb(var(--fourth-color)));
   animation: btn-anim4 1s linear infinite;
   animation-delay: 0.75s;
 }
@@ -222,7 +222,7 @@
 }
 
 .toggle-register:hover {
-  color: var(--third-color);
+  color: rgb(var(--third-color));
 }
 
 /* Chrome, Safari, Edge, Opera */

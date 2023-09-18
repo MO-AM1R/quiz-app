@@ -1,0 +1,32 @@
+.quiz {
+  display: flex;
+  border-radius: 1.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: var(--gray);
+  height: 10rem;
+  width: 18rem;
+  padding: 1rem;
+  color: white;
+  margin-bottom: 2%;
+}
+
+.quiz .quiz-info {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 8rem;
+}
+
+.quiz-info .quiz-question-count {
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  background-color: white;
+  color: black;
+  padding: 4px;
+  text-align: center;
+}
