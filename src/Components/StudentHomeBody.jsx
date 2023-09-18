@@ -1,23 +1,14 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./StudentHomeBody.css";
-import Quiz from "./Quiz";
+import AvailableQuizzes from "./AvailableQuizzes.jsx";
 
 function StudentHomeBody() {
   return (
     <>
       <div className="quizzes-body">
         <div className="quizzes-container">
-          <div className="quizzes-header">
-            <div className="quizzes-header-text">Availble Quizzes</div>
-            <div className="quizzes-header-bar">bar</div>
-          </div>
-          <div className="quizzes">
-            <Quiz />
-            <Quiz />
-            <Quiz />
-            <Quiz />
-            <Quiz />
-          </div>
+          <AvailableQuizzes />
+          {/* Completed Quizzes */}
         </div>
       </div>
     </>

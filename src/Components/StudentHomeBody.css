@@ -1,5 +1,5 @@
 .quizzes-body {
-  min-height: 90vh;
+  min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -10,27 +10,9 @@
 
 .quizzes-container {
   width: 100%;
-  height: 50%;
+  height: 50vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-
-.quizzes {
-  width: 95%;
-  height: 50%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.quizzes-header {
-  width: 90%;
-  color: white;
-  font-size: 2rem;
-  margin-bottom: 2%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  margin-left: 2%;
 }

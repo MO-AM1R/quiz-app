@@ -1,0 +1,25 @@
+.available-quizzes {
+  height: 50%;
+  width: 90%;
+  overflow: auto;
+  white-space: nowrap;
+  font-size: 0;
+}
+
+.available-quizzes::-webkit-scrollbar {
+  max-width: 0.35rem;
+  height: 0.4rem;
+}
+
+.available-quizzes::-webkit-scrollbar-thumb {
+  max-width: 0.35rem;
+  background: white;
+  border-radius: 5px;
+}
+
+.available-quizzes-header {
+  width: 100%;
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 2%;
+}

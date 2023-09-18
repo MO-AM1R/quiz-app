@@ -48,10 +48,7 @@ function Nav(props) {
               )}
             </li>
             <li>
-              <Link
-                className="link"
-                to={!props.isLoged ? "/register" : "/login"}
-              >
+              <Link className="link" to={!props.isLoged ? "/register" : "/"}>
                 {!props.isLoged ? "Sign up" : "Logout"}
               </Link>
             </li>

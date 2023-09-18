@@ -8,11 +8,11 @@ function StudentHome() {
   return (
     <>
       <div className="student-home-screen">
+        <Nav isLoged={true} user={"student"} />
         <div className="student-home-container">
-          <Nav isLoged={true} user={"student"} />
           <StudentHomeBody />
-          <Footer />
         </div>
+        <Footer />
       </div>
     </>
   );

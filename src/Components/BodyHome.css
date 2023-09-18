@@ -42,12 +42,13 @@
   );
   color: #000;
   border: none;
-  box-shadow: 0 0 10px white;
+  border-radius: 10px;
   background-size: 200% 100%;
   transition: all 1s;
 }
 
 .body-container button:hover {
+  box-shadow: 0 0 10px white;
   color: white;
   background-position: left;
 }

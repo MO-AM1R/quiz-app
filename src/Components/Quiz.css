@@ -1,15 +1,21 @@
 .quiz {
-  display: flex;
+  display: inline-flex;
   border-radius: 1.5rem;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   background-color: var(--gray);
   height: 10rem;
-  width: 18rem;
+  width: 21%;
+  margin: 0 1%;
   padding: 1rem;
+  font-size: 1rem;
   color: white;
-  margin-bottom: 2%;
+}
+
+.quiz-instructor-name,
+.quiz-title {
+  color: white;
 }
 
 .quiz .quiz-info {
