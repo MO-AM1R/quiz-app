@@ -1,10 +1,8 @@
 footer {
   position: absolute;
-  bottom: -30vh;
-  left: 0;
-  right: 0;
+  bottom: 0;
   background: rgb(var(--first-color));
-  height: auto;
+  height: 30vh;
   width: 100%;
   padding-top: 40px;
   color: #fff;
@@ -76,6 +74,12 @@ footer {
   color: white;
   font-size: 16px;
   text-decoration: none;
+}
+.footer-bottom .link {
+  color: white;
+  font-size: 16px;
+  float: right;
+  cursor: pointer;
 }
 .footer-bottom span {
   text-transform: uppercase;

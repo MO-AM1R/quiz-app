@@ -54,22 +54,17 @@ function Footer() {
           <p>
             copyright &copy; <a>Mohamed Amir</a>
           </p>
-          <div className="footer-menu">
-            <ul className="f-menu">
-              <li>
-                <ScrollLink
-                  activeClass="active"
-                  to="home"
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={500}
-                >
-                  Home
-                </ScrollLink>
-              </li>
-            </ul>
-          </div>
+          <ScrollLink
+            className="link"
+            activeClass="active"
+            to="home"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+          >
+            Home
+          </ScrollLink>
         </div>
       </footer>
     </>

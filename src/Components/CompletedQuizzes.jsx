@@ -2,10 +2,10 @@ import React from "react";
 import Quiz from "./Quiz";
 import "./Quizzes.css";
 
-function AvailableQuizzes() {
+function CompletedQuizzes() {
   return (
     <>
-      <div className="available-quizzes-header">Availble Quizzes</div>
+      <div className="available-quizzes-header">Completed Quizzes</div>
       <div className="available-quizzes">
         <Quiz />
         <Quiz />
@@ -25,4 +25,4 @@ function AvailableQuizzes() {
   );
 }
 
-export default AvailableQuizzes;
+export default CompletedQuizzes;

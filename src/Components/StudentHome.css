@@ -1,11 +1,10 @@
 .student-home-screen {
-  height: 100vh;
-  overflow: hidden;
+  position: relative;
+  height: 150vh;
 }
 
 .student-home-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  height: 110vh;
+  width: 100%;
+  padding-top: 10vh;
 }
