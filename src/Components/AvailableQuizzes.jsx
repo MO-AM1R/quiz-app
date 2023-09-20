@@ -2,24 +2,14 @@ import React from "react";
 import Quiz from "./Quiz";
 import "./Quizzes.css";
 
-function AvailableQuizzes() {
+function AvailableQuizzes(props) {
   return (
     <>
-      <div className="available-quizzes-header">Availble Quizzes</div>
-      <div className="available-quizzes">
-        <Quiz />
-        <Quiz />
-        <Quiz />
-        <Quiz />
-        <Quiz />
-        <Quiz />
-        <Quiz />
-        <Quiz />
-        <Quiz />
-        <Quiz />
-        <Quiz />
-        <Quiz />
-        <Quiz />
+      <div className="quizzes-header">Available Quizzes</div>
+      <div className="quizzes">
+        {props.quizzes.map((element) => {
+          return <Quiz quiz={element} score={null} />;
+        })}
       </div>
     </>
   );

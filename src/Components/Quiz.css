@@ -14,7 +14,8 @@
 }
 
 .quiz-instructor-name,
-.quiz-title {
+.quiz-title,
+.quiz-score {
   color: white;
 }
 

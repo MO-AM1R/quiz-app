@@ -1,19 +1,18 @@
 import React, { useEffect, useRef, useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { checkStudent } from "../firebase/students";
 import { checkInstructor } from "../firebase/instructors";
-import { Link } from "react-router-dom";
-import history from "../history";
+import { checkStudent } from "../firebase/students";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
 function Login() {
   const email = useRef("");
   const password = useRef("");
+  const navigate = useNavigate();
 
-  const [res, setRes] = useState(10);
+  const [res, setRes] = useState(Number);
   const [showed, setShowed] = useState(false);
   const [isInstructor, setisInstructor] = useState(Boolean);
-
   const toggleShowPass = () => {
     setShowed(!showed);
   };
@@ -25,10 +24,6 @@ function Login() {
       Email: e,
       Password: p,
     };
-
-    if (e == "" || p == "") {
-      return;
-    }
 
     let res1 = await checkStudent(user);
     let res2 = await checkInstructor(user);
@@ -44,10 +39,15 @@ function Login() {
 
   useEffect(() => {
     if (res === 1) {
-      history.replace("/home", { isInstructor });
-      history.go();
+      navigate("/home", {
+        state: {
+          logedIn: true,
+          isInstructor: isInstructor,
+          email: email.current.value,
+        },
+      });
     }
-  }, [res, history]);
+  }, [res]);
 
   return (
     <>
@@ -89,15 +89,13 @@ function Login() {
             </div>
 
             <span className="register-link-container">
-              <Link onClick={loginHandle}>
-                <button className="signIn">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  Sign In
-                </button>
-              </Link>
+              <button onClick={loginHandle} className="signIn">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Sign In
+              </button>
 
               <Link className="register-link" to={"/register"}>
                 Create an accout ?

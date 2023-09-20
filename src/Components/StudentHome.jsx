@@ -1,16 +1,16 @@
 import React from "react";
 import Nav from "./Nav";
-import "./StudentHome.css";
 import Footer from "./Footer";
 import StudentHomeBody from "./StudentHomeBody";
+import "./StudentHome.css";
 
-function StudentHome() {
+function StudentHome(props) {
   return (
     <>
       <div className="student-home-screen">
         <Nav isLoged={true} user={"student"} />
         <div className="student-home-container">
-          <StudentHomeBody />
+          <StudentHomeBody email={props.email} />
         </div>
         <Footer />
       </div>

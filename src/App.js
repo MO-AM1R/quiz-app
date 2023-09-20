@@ -1,30 +1,33 @@
 import { useEffect } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import { initializeInstructors } from "./firebase/instructors";
 import { initializeStudents } from "./firebase/students";
+import { initializeQuizzes } from "./firebase/quizes";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
 import Home from "./Components/Home.jsx";
 import "./App.css";
-import { initializeInstructors } from "./firebase/instructors";
+import Exam from "./Components/Exam";
 
 function App() {
   useEffect(() => {
-    initializeStudents();
-    initializeInstructors();
+    async function initializeData() {
+      await initializeInstructors();
+      await initializeStudents();
+      await initializeQuizzes();
+    }
+
+    initializeData();
   }, []);
 
-  let location = useLocation();
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home logIn={false} />}></Route>
+        <Route path="/" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
-        <Route
-          path="/home"
-          element={<Home logIn={true} />}
-          state={{ instractor: location.state?.isInstructor }}
-        ></Route>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/exam" element={<Exam />}></Route>
       </Routes>
     </>
   );

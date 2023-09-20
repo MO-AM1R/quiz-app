@@ -1,14 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Quiz.css";
+import { useNavigate } from "react-router-dom";
 
-function Quiz() {
+function Quiz(props) {
+  const [completed, setCompleted] = useState(false);
+  const navigator = useNavigate();
+
+  const handle = () => {
+    navigator("/exam", {
+      state: {
+        quiz: props.quiz,
+      },
+    });
+  };
+  useEffect(() => {
+    if (props.score !== null) {
+      setCompleted(true);
+    }
+  }, []);
+
   return (
     <>
-      <div className="quiz">
-        <div className="quiz-title">Quiz</div>
+      <div onClick={handle} className="quiz">
+        <div className="quiz-title">{props.quiz.Category}</div>
         <div className="quiz-info">
-          <div className="quiz-question-count">100 Questions</div>
-          <div className="quiz-instructor-name">Instructor</div>
+          <div className="quiz-question-count">
+            {props.quiz.Question_Count + "  Questions"}
+          </div>
+          {completed ? (
+            <div className="quiz-score">{"Last Score: " + props.score}</div>
+          ) : (
+            <></>
+          )}
+          <div className="quiz-instructor-name">{props.quiz.Instructor}</div>
         </div>
       </div>
     </>

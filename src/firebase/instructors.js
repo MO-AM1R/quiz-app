@@ -4,16 +4,6 @@ import { collection, getDocs, addDoc } from "firebase/firestore";
 let instructors;
 const instructorsCollectionRef = collection(dp, "Instructors");
 
-/*
-    Age: 25
-    Email: "r"
-    Job: "d"
-    Name: "r"
-    Password: "r"
-    Quizzes: (2) [1, 2]
-    id: "bSZuzahXGpMLJIbmL2mb"
-*/
-
 async function initializeInstructors() {
   if (!instructors) {
     let instructorsDocs = await getDocs(instructorsCollectionRef);
@@ -48,4 +38,18 @@ async function addInstructor(instructor) {
   instructors.push(newInstructor);
 }
 
-export { initializeInstructors, checkInstructor, addInstructor };
+async function getInstructorId(instractor) {
+  instructors.forEach((element) => {
+    if (element.Email == instractor.Email) {
+      return element.id;
+    }
+  });
+}
+
+export {
+  initializeInstructors,
+  checkInstructor,
+  addInstructor,
+  getInstructorId,
+  instructors,
+};

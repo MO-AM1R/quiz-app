@@ -14,7 +14,7 @@ async function initializeStudents() {
   }
 }
 
-async function checkStudent(student) {
+function checkStudent(student) {
   var res = -1;
   students.forEach((element) => {
     if (element.Email == student.Email) {
@@ -28,6 +28,14 @@ async function checkStudent(student) {
   return res;
 }
 
+function getStudentId(email) {
+  students.forEach((element) => {
+    if (element.Email === email) {
+      return element;
+    }
+  });
+}
+
 async function addStudent(student) {
   const docRef = await addDoc(studentsCollectionRef, student);
 
@@ -38,4 +46,4 @@ async function addStudent(student) {
   students.push(newStudent);
 }
 
-export { initializeStudents, checkStudent, addStudent };
+export { initializeStudents, checkStudent, addStudent, getStudentId, students };
