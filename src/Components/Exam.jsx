@@ -84,7 +84,14 @@ function Exam() {
                   Next
                 </button>
               </div>
-              {examEnd ? <Score score={currentScore} /> : <></>}
+              {examEnd ? (
+                <Score
+                  score={currentScore}
+                  questionCount={exam.Question_Count}
+                />
+              ) : (
+                <></>
+              )}
             </>
           ) : (
             <>

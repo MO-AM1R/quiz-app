@@ -9,13 +9,19 @@
 }
 
 .crown-container,
-.score-value-container,
+.score-info-container,
 .btn-container {
-  height: 33%;
+  height: 30%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.score-info-container {
+  height: 50%;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .crown-container .crown {
@@ -23,10 +29,17 @@
   color: rgb(var(--first-color));
 }
 
-.score span {
-  font-weight: bold;
+.score-value span,
+.all-questions span,
+.true-answers span,
+.false-answers span {
+  font-size: 2.4rem;
+  color: rgb(var(--first-color));
 }
 
+.btn-container {
+  height: 20%;
+}
 .btn {
   position: relative;
   display: inline-block;

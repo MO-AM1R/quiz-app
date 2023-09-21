@@ -19,7 +19,7 @@
   cursor: pointer;
 }
 
-.answer.selected {
+.answer.true {
   background-color: lightgreen;
   color: white;
 }

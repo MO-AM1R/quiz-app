@@ -45,7 +45,7 @@ function getCompletedQuizzes(id) {
 
 async function addQuizzes(id, quiz) {
   // to push with specific id
-  setDoc(doc(dp, "Quizzes", id), {
+  setDoc(doc(db, "Quizzes", id), {
     ...quiz,
   });
 

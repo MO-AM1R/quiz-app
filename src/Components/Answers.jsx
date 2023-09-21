@@ -15,13 +15,13 @@ function Answers({
 
   const selectAnswer = (answer) => {
     if (answerA.current.classList.contains(answer)) {
-      answerA.current.classList.add("selected");
+      answerA.current.classList.add("true");
     } else if (answerB.current.classList.contains(answer)) {
-      answerB.current.classList.add("selected");
+      answerB.current.classList.add("true");
     } else if (answerC.current.classList.contains(answer)) {
-      answerC.current.classList.add("selected");
+      answerC.current.classList.add("true");
     } else {
-      answerD.current.classList.add("selected");
+      answerD.current.classList.add("true");
     }
   };
 
@@ -34,7 +34,7 @@ function Answers({
     let answer = Correct_Answers;
 
     if (element.classList.contains(answer)) {
-      element.classList.add("selected");
+      element.classList.add("true");
       increamentScore();
     } else {
       element.classList.add("wrong");
@@ -45,26 +45,26 @@ function Answers({
   };
 
   reset = () => {
-    if (answerA.current.classList.contains("selected")) {
-      answerA.current.classList.remove("selected");
+    if (answerA.current.classList.contains("true")) {
+      answerA.current.classList.remove("true");
     } else if (answerA.current.classList.contains("wrong")) {
       answerA.current.classList.remove("wrong");
     }
 
-    if (answerB.current.classList.contains("selected")) {
-      answerB.current.classList.remove("selected");
+    if (answerB.current.classList.contains("true")) {
+      answerB.current.classList.remove("true");
     } else if (answerB.current.classList.contains("wrong")) {
       answerB.current.classList.remove("wrong");
     }
 
-    if (answerC.current.classList.contains("selected")) {
-      answerC.current.classList.remove("selected");
+    if (answerC.current.classList.contains("true")) {
+      answerC.current.classList.remove("true");
     } else if (answerC.current.classList.contains("wrong")) {
       answerC.current.classList.remove("wrong");
     }
 
-    if (answerD.current.classList.contains("selected")) {
-      answerD.current.classList.remove("selected");
+    if (answerD.current.classList.contains("true")) {
+      answerD.current.classList.remove("true");
     } else if (answerD.current.classList.contains("wrong")) {
       answerD.current.classList.remove("wrong");
     }
