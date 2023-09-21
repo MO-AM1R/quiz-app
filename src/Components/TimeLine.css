@@ -1,0 +1,33 @@
+.time-line-container {
+  height: 10%;
+  width: 100%;
+}
+
+.time-line-track {
+  height: 0.25rem;
+  width: 100%;
+  background-color: rgb(0, 0, 0, 0.3);
+}
+
+.time-line {
+  background-color: rgb(var(--first-color));
+  height: 0.25rem;
+  width: 0;
+  transition-duration: 1s;
+  transition-timing-function: linear;
+}
+
+.time-left {
+  width: 100%;
+  height: calc(100% - 1rem);
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.time-left span {
+  color: rgb(var(--first-color));
+  margin-right: 0.5%;
+}

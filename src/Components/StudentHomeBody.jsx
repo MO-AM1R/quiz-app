@@ -1,32 +1,17 @@
 import React, { useEffect, useState } from "react";
-import {
-  getCompletedQuizzes,
-  initializeQuizzes,
-  quizzes,
-} from "../firebase/quizes";
+import { initializeQuizzes, quizzes } from "../firebase/quizes";
 import { initializeStudents, students } from "../firebase/students";
 import { initializeInstructors } from "../firebase/instructors";
 import AvailableQuizzes from "./AvailableQuizzes";
-import CompletedQuizzes from "./CompletedQuizzes";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import "./StudentHomeBody.css";
 
-function StudentHomeBody(props) {
+function StudentHomeBody() {
   const [dataIntialized, setDataIntialized] = useState(false);
-  let completedQuizzes = [];
 
   useEffect(() => {
     async function getdata() {
       if (students) {
-        students.forEach((element) => {
-          if (element.Email === props.email) {
-            element.Completed_Quizzes.forEach((element) => {
-              completedQuizzes.push({
-                quiz: getCompletedQuizzes(element.Id),
-                score: element.Score,
-              });
-            });
-          }
-        });
         setDataIntialized(true);
       } else {
         await initializeStudents();
@@ -40,16 +25,19 @@ function StudentHomeBody(props) {
 
   return (
     <>
-      <div className="quizzes-container">
-        {dataIntialized ? (
-          <>
+      {dataIntialized ? (
+        <>
+          <div className="quizzes-container">
             <AvailableQuizzes quizzes={quizzes} />
-            <CompletedQuizzes completedQuizzes={completedQuizzes} />
-          </>
-        ) : (
-          <></>
-        )}
-      </div>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="loading-container">
+            <AiOutlineLoading3Quarters className="loading" />
+          </div>
+        </>
+      )}
     </>
   );
 }

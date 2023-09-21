@@ -1,8 +1,8 @@
-import dp from "./firebaseConfig";
-import { collection, getDocs, addDoc } from "firebase/firestore";
+import db from "./firebaseConfig";
+import { collection, getDocs, addDoc, setDoc, doc } from "firebase/firestore";
 
 let quizzes;
-const quizzesCollectionRef = collection(dp, "Quiz");
+const quizzesCollectionRef = collection(db, "Quizzes");
 
 async function initializeQuizzes() {
   if (!quizzes) {
@@ -43,4 +43,18 @@ function getCompletedQuizzes(id) {
   return quiz;
 }
 
-export { initializeQuizzes, addQuiz, quizzes, getCompletedQuizzes };
+async function addQuizzes(id, quiz) {
+  // to push with specific id
+  setDoc(doc(dp, "Quizzes", id), {
+    ...quiz,
+  });
+
+  const newQuiz = {
+    ...quiz,
+    id: id,
+  };
+
+  quizzes.push(newQuiz);
+}
+
+export { initializeQuizzes, addQuiz, quizzes, getCompletedQuizzes, addQuizzes };

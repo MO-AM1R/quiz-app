@@ -10,9 +10,10 @@ function Login() {
   const password = useRef("");
   const navigate = useNavigate();
 
-  const [res, setRes] = useState(Number);
+  const [res, setRes] = useState(10);
   const [showed, setShowed] = useState(false);
   const [isInstructor, setisInstructor] = useState(Boolean);
+
   const toggleShowPass = () => {
     setShowed(!showed);
   };
