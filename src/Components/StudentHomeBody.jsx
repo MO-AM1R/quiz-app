@@ -26,7 +26,7 @@ function StudentHomeBody() {
       {dataIntialized ? (
         <>
           <div className="quizzes-container">
-            <Quizzes quizzes={quizzes} />
+            <Quizzes student={true} quizzes={quizzes} />
           </div>
         </>
       ) : (
