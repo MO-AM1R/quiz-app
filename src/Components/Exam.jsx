@@ -1,10 +1,10 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import "./Exam.css";
 import { TimeLine, startAgain, endTime } from "./TimeLine";
-import { Answers, showAnswer, reset } from "./Answers.jsx";
+import { Answers, showAnswer, reset, toggleDisaple } from "./Answers.jsx";
 import Score from "./Score";
 import Question from "./Questions";
+import "./Exam.css";
 
 function Exam() {
   const [index, setIndex] = useState(0);
@@ -26,7 +26,7 @@ function Exam() {
     reset();
     setIndex(index + 1);
     startAgain();
-    setChoosed(false);
+    toggleDisaple();
   };
 
   const increamentScore = () => {
@@ -41,6 +41,7 @@ function Exam() {
   const answerSelected = () => {
     endTime();
     setChoosed(true);
+    toggleDisaple();
   };
 
   return (

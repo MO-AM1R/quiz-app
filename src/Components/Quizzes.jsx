@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { deleteQuiz } from "../firebase/quizes";
-import { deleteInstructorQuiz } from "../firebase/instructors";
+import React, { useState } from "react";
 import Quiz from "./Quiz";
 import "./Quizzes.css";
 

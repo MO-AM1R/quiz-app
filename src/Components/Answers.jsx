@@ -1,6 +1,8 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
+import { AiOutlineClose } from "react-icons/ai";
+import { BsCheckLg } from "react-icons/bs";
 import "./Answers.css";
-let showAnswer, reset;
+let showAnswer, reset, toggleDisaple;
 
 function Answers({
   Correct_Answers,
@@ -8,6 +10,7 @@ function Answers({
   increamentScore,
   answerSelected,
 }) {
+  const [disable, setDisable] = useState(false);
   const answerA = useRef(),
     answerB = useRef(),
     answerC = useRef(),
@@ -25,6 +28,10 @@ function Answers({
     }
   };
 
+  toggleDisaple = () => {
+    setDisable(!disable);
+  };
+
   showAnswer = () => {
     let answer = Correct_Answers;
     selectAnswer(answer);
@@ -40,7 +47,6 @@ function Answers({
       element.classList.add("wrong");
       selectAnswer(answer);
     }
-
     answerSelected();
   };
 
@@ -74,43 +80,67 @@ function Answers({
     <>
       <div className="answers">
         <div
-          onClick={() => {
-            handleAnswer(answerA.current);
-          }}
           ref={answerA}
           className="answer a"
+          onClick={() => {
+            if (!disable) {
+              handleAnswer(answerA.current);
+            }
+          }}
         >
-          <div className="answer-number a">A</div>
+          <div className="answer-number a">
+            <span className="answer-number-text">A</span>
+            <AiOutlineClose className="false-icon" />
+            <BsCheckLg className="true-icon" />
+          </div>
           <div className="answer-text">{Answers[0]}</div>
         </div>
         <div
           onClick={() => {
-            handleAnswer(answerB.current);
+            if (!disable) {
+              handleAnswer(answerB.current);
+            }
           }}
           ref={answerB}
           className="answer b"
         >
-          <div className="answer-number">B</div>
+          <div className="answer-number">
+            <span className="answer-number-text">B</span>
+            <AiOutlineClose className="false-icon" />
+            <BsCheckLg className="true-icon" />
+          </div>
           <div className="answer-text">{Answers[1]}</div>
         </div>
         <div
           onClick={() => {
-            handleAnswer(answerC.current);
+            if (!disable) {
+              handleAnswer(answerC.current);
+            }
           }}
           ref={answerC}
           className="answer c"
         >
-          <div className="answer-number">C</div>
+          <div className="answer-number">
+            <span className="answer-number-text">C</span>
+            <AiOutlineClose className="false-icon" />
+            <BsCheckLg className="true-icon" />
+          </div>
           <div className="answer-text">{Answers[2]}</div>
         </div>
         <div
           onClick={() => {
-            handleAnswer(answerD.current);
+            if (!disable) {
+              handleAnswer(answerD.current);
+            }
           }}
           ref={answerD}
           className="answer d"
         >
-          <div className="answer-number">D</div>
+          <div className="answer-number">
+            <span className="answer-number-text">D</span>
+            <AiOutlineClose className="false-icon" />
+            <BsCheckLg className="true-icon" />
+          </div>
           <div className="answer-text">{Answers[3]}</div>
         </div>
       </div>
@@ -118,4 +148,4 @@ function Answers({
   );
 }
 
-export { Answers, showAnswer, reset };
+export { Answers, showAnswer, reset, toggleDisaple };

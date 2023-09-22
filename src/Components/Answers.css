@@ -9,9 +9,9 @@
 
 .answer {
   width: 100%;
-  height: 12%;
+  height: fit-content;
   padding: 0.25rem;
-  border-radius: 1.5rem;
+  border-radius: 0.5rem;
   background-color: rgb(var(--third-color));
   display: flex;
   justify-content: space-evenly;
@@ -22,6 +22,18 @@
 .answer.true {
   background-color: lightgreen;
   color: white;
+}
+
+.answer.true .true-icon,
+.answer.wrong .false-icon {
+  display: block;
+  scale: 1.2;
+  text-align: center;
+}
+
+.answer.true .answer-number-text,
+.answer.wrong .answer-number-text {
+  display: none;
 }
 
 .answer.wrong {
@@ -45,4 +57,9 @@
 .answer-text {
   width: 85%;
   font-size: 1.5rem;
+}
+
+.true-icon,
+.false-icon {
+  display: none;
 }
