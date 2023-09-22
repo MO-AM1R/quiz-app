@@ -37,11 +37,8 @@
   align-items: center;
 }
 
-.inputs .input-field {
-  width: 45%;
-}
-
 .input-field {
+  width: 45%;
   position: relative;
   width: 100%;
 }
@@ -126,8 +123,9 @@
   background-color: rgb(var(--fourth-color));
   color: #000;
   border-radius: 5px;
-  box-shadow: 0 0 5px rgb(var(--fourth-color)), 0 0 25px rgb(var(--fourth-color)),
-    0 0 50px rgb(var(--fourth-color)), 0 0 100px rgb(var(--fourth-color));
+  box-shadow: 0 0 5px rgb(var(--fourth-color)),
+    0 0 25px rgb(var(--fourth-color)), 0 0 50px rgb(var(--fourth-color)),
+    0 0 100px rgb(var(--fourth-color));
 }
 
 .register-btn span {

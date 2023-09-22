@@ -95,6 +95,7 @@ function Answers({
           </div>
           <div className="answer-text">{Answers[0]}</div>
         </div>
+
         <div
           onClick={() => {
             if (!disable) {
@@ -111,6 +112,7 @@ function Answers({
           </div>
           <div className="answer-text">{Answers[1]}</div>
         </div>
+
         <div
           onClick={() => {
             if (!disable) {
@@ -127,6 +129,7 @@ function Answers({
           </div>
           <div className="answer-text">{Answers[2]}</div>
         </div>
+
         <div
           onClick={() => {
             if (!disable) {

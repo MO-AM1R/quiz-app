@@ -32,7 +32,9 @@ function Nav(props) {
             <li className="add-quiz">
               {props.user != "student" ? (
                 <>
-                  <AddQuizIcon toPage={props.isLoged ? "/new" : "/register"} />
+                  <AddQuizIcon
+                    toPage={props.isLoged ? "/add_quiz" : "/register"}
+                  />
                 </>
               ) : (
                 <></>

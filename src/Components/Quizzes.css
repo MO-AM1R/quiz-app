@@ -6,20 +6,21 @@
   font-size: 0;
 }
 
+.quizzes-header {
+  width: 100%;
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 4rem;
+}
+
 .quizzes::-webkit-scrollbar {
   max-width: 0.35rem;
   height: 0.4rem;
+  opacity: 0;
 }
 
 .quizzes::-webkit-scrollbar-thumb {
   max-width: 0.35rem;
   background: white;
   border-radius: 5px;
-}
-
-.quizzes-header {
-  width: 100%;
-  color: white;
-  font-size: 2rem;
-  margin-bottom: 4rem;
 }

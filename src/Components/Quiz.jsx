@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "./Quiz.css";
 import { useNavigate } from "react-router-dom";
 import { AiTwotoneEdit, AiFillDelete } from "react-icons/ai";
 import { deleteQuiz } from "../firebase/quizes";
 import { deleteInstructorQuiz } from "../firebase/instructors";
+import "./Quiz.css";
 
 function Quiz(props) {
   const navigator = useNavigate();
