@@ -2,10 +2,10 @@ import React from "react";
 import { AiFillPlusCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
-function AddQuizIcon() {
+function AddQuizIcon({ toPage }) {
   return (
     <>
-      <Link to={"/register"} state={true} className="link">
+      <Link to={toPage} state={true} className="link">
         <AiFillPlusCircle />
       </Link>
     </>

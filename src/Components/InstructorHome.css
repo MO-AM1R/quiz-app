@@ -1,0 +1,10 @@
+.instructor-home-screen {
+  position: relative;
+  height: 150vh;
+}
+
+.instructor-home-container {
+  height: 110vh;
+  width: 100%;
+  padding-top: 10vh;
+}

@@ -1,5 +1,11 @@
 import dp from "./firebaseConfig";
-import { collection, getDocs, addDoc } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
 
 let instructors;
 const instructorsCollectionRef = collection(dp, "Instructors");
@@ -14,7 +20,7 @@ async function initializeInstructors() {
   }
 }
 
-async function checkInstructor(instructor) {
+function checkInstructor(instructor) {
   var res = -1;
   instructors.forEach((element) => {
     if (element.Email == instructor.Email) {
@@ -38,10 +44,44 @@ async function addInstructor(instructor) {
   instructors.push(newInstructor);
 }
 
-async function getInstructorId(instractor) {
+function getInstructor(instractorEmail) {
+  let instructor = {
+    Age: "",
+    Email: "",
+    Job: "",
+    Name: "",
+    Password: "",
+    Quizzes: [],
+  };
+
   instructors.forEach((element) => {
-    if (element.Email == instractor.Email) {
-      return element.id;
+    if (element.Email == instractorEmail) {
+      instructor = element;
+    }
+  });
+
+  return instructor;
+}
+
+async function deleteInstructorQuiz(quizId, instructorId) {
+  let newQuizzes = [];
+  let oldQuizzes = [];
+
+  instructors.forEach((element) => {
+    if (element.id == instructorId) {
+      oldQuizzes = element.Quizzes;
+    }
+  });
+
+  newQuizzes = oldQuizzes.filter((id) => id != quizId);
+
+  await updateDoc(doc(dp, "Instructors", instructorId), {
+    Quizzes: newQuizzes,
+  });
+
+  instructors.forEach((element) => {
+    if (element.id == instructorId) {
+      element.Quizzes = newQuizzes;
     }
   });
 }
@@ -50,6 +90,7 @@ export {
   initializeInstructors,
   checkInstructor,
   addInstructor,
-  getInstructorId,
+  getInstructor,
   instructors,
+  deleteInstructorQuiz,
 };

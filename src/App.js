@@ -12,8 +12,8 @@ import Exam from "./Components/Exam";
 function App() {
   useEffect(() => {
     async function initializeData() {
-      await initializeInstructors();
       await initializeStudents();
+      await initializeInstructors();
       await initializeQuizzes();
     }
 

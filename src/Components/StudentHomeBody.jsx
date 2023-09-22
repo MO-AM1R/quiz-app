@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { initializeQuizzes, quizzes } from "../firebase/quizes";
 import { initializeStudents, students } from "../firebase/students";
-import { initializeInstructors } from "../firebase/instructors";
-import AvailableQuizzes from "./AvailableQuizzes";
+import Quizzes from "./Quizzes";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import "./StudentHomeBody.css";
 
@@ -16,7 +15,6 @@ function StudentHomeBody() {
       } else {
         await initializeStudents();
         await initializeQuizzes();
-        await initializeInstructors();
         getdata();
       }
     }
@@ -28,7 +26,7 @@ function StudentHomeBody() {
       {dataIntialized ? (
         <>
           <div className="quizzes-container">
-            <AvailableQuizzes quizzes={quizzes} />
+            <Quizzes quizzes={quizzes} />
           </div>
         </>
       ) : (
