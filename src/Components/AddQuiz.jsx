@@ -1,12 +1,16 @@
 import React, { useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import FirstStep from "./FirstStep";
-import MakeQuiz from "./MakeQuiz.jsx";
+import { MakeQuiz, resetFunc } from "./MakeQuiz.jsx";
+import { addQuiz } from "../firebase/quizes";
+import { addQuizTo } from "../firebase/instructors";
+import Swal from "sweetalert2";
 import "./AddQuiz.css";
 
 function AddQuiz() {
   const location = useLocation();
   const instructorName = location.state.name;
+  const instructorId = location.state.id;
 
   const errorMessage = useRef();
 
@@ -16,9 +20,9 @@ function AddQuiz() {
   const [index, setIndex] = useState(0);
 
   const [quiz, setQuiz] = useState({
-    Answers: new Array(number),
+    Answers: {},
     Category: category,
-    Correct_Answers: new Array(number),
+    Correct_Answers: Array.from({ length: number }, () => ""),
     Instructor: instructorName,
     Question_Count: number,
     Questions: new Array(number),
@@ -33,7 +37,6 @@ function AddQuiz() {
   };
 
   const fetchQuestion = (value) => {
-    console.log(index);
     quiz.Questions[index] = value;
   };
 
@@ -58,7 +61,6 @@ function AddQuiz() {
   };
 
   const makeQuiz = () => {
-    console.log(number);
     if (number === 0 || category === "") {
       errorMessage.current.style.display = "block";
       setTimeout(() => {
@@ -75,15 +77,20 @@ function AddQuiz() {
     }
   };
 
-  const increaseIndex = () => {
+  const increaseIndex = async () => {
     console.log(quiz);
     if (number - 1 > index) {
       setIndex(index + 1);
-      // reset inputs
-      // fix back bug
-      // remove edit btn
-      // make it responsive
-      // test project
+      resetFunc();
+    } else {
+      let quizId = await addQuiz(quiz);
+      await addQuizTo(instructorId, quizId);
+
+      Swal.fire({
+        title: "Good job!",
+        text: "You added new Quiz.",
+        icon: "success",
+      });
     }
   };
 

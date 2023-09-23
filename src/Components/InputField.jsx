@@ -1,5 +1,7 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./InputField.css";
+
+let resetInput;
 
 function InputField({
   label,
@@ -7,10 +9,19 @@ function InputField({
   fetchData,
   containerClassName,
   fieldClassName,
+  reset,
 }) {
   const answer = useRef();
+  const [value, setValue] = useState("");
 
-  const setAnswer = () => {
+  useEffect(() => {
+    if (reset) {
+      setValue("");
+    }
+  }, [reset]);
+
+  const setAnswer = (event) => {
+    setValue(event.target.value);
     fetchData(answer.current.value);
   };
 
@@ -24,6 +35,7 @@ function InputField({
             name="inputName"
             type={type}
             required
+            value={value}
           ></input>
           <label>{label}</label>
         </div>
@@ -32,4 +44,4 @@ function InputField({
   );
 }
 
-export default InputField;
+export { InputField, resetInput };

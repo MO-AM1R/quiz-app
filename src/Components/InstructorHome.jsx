@@ -46,7 +46,12 @@ function InstructorHome(props) {
 
   return (
     <div className="instructor-home-screen">
-      <Nav isLoged={true} user={"instructor"} instructorName={instructorName} />
+      <Nav
+        isLoged={true}
+        user={"instructor"}
+        instructorName={instructorName}
+        instructorId={instructorId}
+      />
       {dataInitialized ? (
         <div className="instructor-home-container">
           <InstructorHomeBody

@@ -21,14 +21,30 @@ async function initializeQuizzes() {
   }
 }
 
+function getLastId() {
+  let id;
+  quizzes.forEach((element) => {
+    id = element.id;
+  });
+
+  return id;
+}
+
 async function addQuiz(quiz) {
-  const docRef = await addDoc(quizzesCollectionRef, quiz);
+  let getMaxId = parseInt(getLastId()) + 1;
+
+  setDoc(doc(db, "Quizzes", getMaxId.toString()), {
+    ...quiz,
+  });
 
   const newQuiz = {
     ...quiz,
-    id: docRef.id,
+    id: getMaxId,
   };
+
   quizzes.push(newQuiz);
+
+  return getMaxId;
 }
 
 function getQuiz(id) {
@@ -50,63 +66,48 @@ function getQuiz(id) {
   return quiz;
 }
 
-async function temp() {
-  let quiz1 = {
-    Answers: [],
-    Category: "s",
-    Correct_Answers: [],
-    Instructor: "Ali",
-    Question_Count: 15,
-    Questions: [],
-  };
+// async function temp() {
+//   let quiz1 = {
+//     Answers: [],
+//     Category: "s",
+//     Correct_Answers: [],
+//     Instructor: "Ali",
+//     Question_Count: 15,
+//     Questions: [],
+//   };
 
-  let quiz2 = {
-    Answers: [],
-    Category: "g",
-    Correct_Answers: [],
-    Instructor: "Ahmed",
-    Question_Count: 15,
-    Questions: [],
-  };
+//   let quiz2 = {
+//     Answers: [],
+//     Category: "g",
+//     Correct_Answers: [],
+//     Instructor: "Ahmed",
+//     Question_Count: 15,
+//     Questions: [],
+//   };
 
-  let quiz3 = {
-    Answers: [],
-    Category: "e",
-    Correct_Answers: [],
-    Instructor: "Ali",
-    Question_Count: 15,
-    Questions: [],
-  };
+//   let quiz3 = {
+//     Answers: [],
+//     Category: "e",
+//     Correct_Answers: [],
+//     Instructor: "Ali",
+//     Question_Count: 15,
+//     Questions: [],
+//   };
 
-  let quiz4 = {
-    Answers: [],
-    Category: "x",
-    Correct_Answers: [],
-    Instructor: "Ahmed",
-    Question_Count: 15,
-    Questions: [],
-  };
+//   let quiz4 = {
+//     Answers: [],
+//     Category: "x",
+//     Correct_Answers: [],
+//     Instructor: "Ahmed",
+//     Question_Count: 15,
+//     Questions: [],
+//   };
 
-  let q = [quiz1, quiz2, quiz3, quiz4];
-  for (let index = 6; index <= 9; index++) {
-    addQuizzes(index, q[index - 6]);
-  }
-}
-
-async function addQuizzes(id, quiz) {
-  // to push with specific id
-
-  setDoc(doc(db, "Quizzes", id.toString()), {
-    ...quiz,
-  });
-
-  const newQuiz = {
-    ...quiz,
-    id: id,
-  };
-
-  quizzes.push(newQuiz);
-}
+//   let q = [quiz1, quiz2, quiz3, quiz4];
+//   for (let index = 6; index <= 9; index++) {
+//     // addQuizzes(index, q[index - 6]);
+//   }
+// }
 
 async function deleteQuiz(id) {
   await deleteDoc(doc(db, "Quizzes", id));
@@ -115,12 +116,4 @@ async function deleteQuiz(id) {
   quizzes = quizzes.filter((quiz) => quiz.id !== id);
 }
 
-export {
-  initializeQuizzes,
-  addQuiz,
-  quizzes,
-  getQuiz,
-  addQuizzes,
-  deleteQuiz,
-  temp,
-};
+export { initializeQuizzes, addQuiz, quizzes, getQuiz, deleteQuiz };

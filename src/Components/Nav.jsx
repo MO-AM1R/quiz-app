@@ -12,6 +12,7 @@ function Nav(props) {
       navigator("/add_quiz", {
         state: {
           name: props.instructorName,
+          id: props.instructorId,
         },
       });
     } else {

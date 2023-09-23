@@ -86,6 +86,18 @@ async function deleteInstructorQuiz(quizId, instructorId) {
   });
 }
 
+async function addQuizTo(id, quizId) {
+  instructors.forEach(async (element) => {
+    if (element.id == id) {
+      element.Quizzes.push(quizId);
+
+      await updateDoc(doc(dp, "Instructors", id), {
+        Quizzes: element.Quizzes,
+      });
+    }
+  });
+}
+
 export {
   initializeInstructors,
   checkInstructor,
@@ -93,4 +105,5 @@ export {
   getInstructor,
   instructors,
   deleteInstructorQuiz,
+  addQuizTo,
 };

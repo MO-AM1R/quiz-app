@@ -1,7 +1,8 @@
-import React from "react";
-import InputField from "./InputField";
+import React, { useState } from "react";
+import { InputField} from "./InputField";
 import DownList from "./DownList.jsx";
 
+let resetFunc;
 function MakeQuiz({
   fetchAnswerA,
   fetchAnswerB,
@@ -10,6 +11,16 @@ function MakeQuiz({
   fetchCorrectAnswer,
   fetchQuestion,
 }) {
+  const [reset, setReset] = useState(false);
+
+  resetFunc = () => {
+    setReset(true);
+
+    setTimeout(() => {
+      setReset(false);
+    }, 0);
+  };
+
   return (
     <>
       <div className="question-inputs">
@@ -19,6 +30,7 @@ function MakeQuiz({
           fetchData={fetchQuestion}
           type={"text"}
           label="Question text"
+          reset={reset}
         />
         <InputField
           containerClassName={"question-container"}
@@ -26,6 +38,7 @@ function MakeQuiz({
           fetchData={fetchAnswerA}
           type={"text"}
           label="Answer A"
+          reset={reset}
         />
         <InputField
           containerClassName={"question-container"}
@@ -33,6 +46,7 @@ function MakeQuiz({
           fetchData={fetchAnswerB}
           type={"text"}
           label="Answer B"
+          reset={reset}
         />
         <InputField
           containerClassName={"question-container"}
@@ -40,6 +54,7 @@ function MakeQuiz({
           fetchData={fetchAnswerC}
           type={"text"}
           label="Answer C"
+          reset={reset}
         />
         <InputField
           containerClassName={"question-container"}
@@ -47,11 +62,12 @@ function MakeQuiz({
           fetchData={fetchAnswerD}
           type={"text"}
           label="Answer D"
+          reset={reset}
         />
-        <DownList fetchData={fetchCorrectAnswer} />
+        <DownList reset={reset} fetchData={fetchCorrectAnswer} />
       </div>
     </>
   );
 }
 
-export default MakeQuiz;
+export { MakeQuiz, resetFunc };
