@@ -7,7 +7,7 @@ import "./InstructorHome.css";
 function InstructorHome(props) {
   return (
     <div className="instructor-home-screen">
-      <Nav isLoged={true} user={"instructor"} />
+      <Nav isLoged={true} user={"instructor"} email={props.email}/>
       <div className="instructor-home-container">
         <InstructorHomeBody email={props.email} />
       </div>

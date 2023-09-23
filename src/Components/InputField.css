@@ -1,4 +1,5 @@
-.field-container {
+.field-container,
+.question-container {
   width: 100%;
   height: 50%;
   display: flex;
@@ -7,12 +8,14 @@
   align-items: center;
 }
 
-.input-field-container {
+.input-field-container,
+.question-field {
   position: relative;
   width: 100%;
 }
 
-.input-field-container input {
+.input-field-container input,
+.question-field input {
   margin-bottom: 2rem;
   position: relative;
   background-color: transparent;
@@ -25,7 +28,8 @@
   padding: 0 0 0.5rem 0.5rem;
 }
 
-.input-field-container label {
+.input-field-container label,
+.question-field label {
   opacity: 1;
   font-size: 1.5rem;
   position: absolute;
@@ -37,7 +41,23 @@
 }
 
 .input-field-container input:focus ~ label,
-.input-field-container input:valid ~ label {
+.input-field-container input:valid ~ label,
+.question-field input:valid ~ label,
+.question-field input:focus ~ label {
   top: -1.5rem;
   font-size: 1rem;
+}
+
+.question-inputs {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.question-container {
+  width: 40%;
+  height: 20%;
 }

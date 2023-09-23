@@ -16,7 +16,6 @@ function App() {
       await initializeStudents();
       await initializeInstructors();
       await initializeQuizzes();
-      // test
     }
 
     initializeData();

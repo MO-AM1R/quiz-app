@@ -1,0 +1,24 @@
+.down-list-container {
+  width: 40%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#Answers {
+  font-size: 1rem;
+  color: rbg(var(--first-color));
+}
+
+.down-list-container label {
+  font-size: 1.5rem;
+  color: rbg(var(--first-color));
+}
+
+.down-list-container select {
+  width: 40%;
+  height: 2rem;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 1rem;
+}

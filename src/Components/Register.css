@@ -40,7 +40,6 @@
 .input-field {
   width: 45%;
   position: relative;
-  width: 100%;
 }
 
 .input-field input:not([type="checkbox"]) {

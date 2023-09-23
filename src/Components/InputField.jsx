@@ -1,25 +1,33 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./InputField.css";
 
-function InputField({ label, type, handleClick }) {
-  const sendData = (event) => {
-    handleClick(event.target.inputName.value);
+function InputField({
+  label,
+  type,
+  fetchData,
+  containerClassName,
+  fieldClassName,
+}) {
+  const answer = useRef();
+
+  const setAnswer = () => {
+    fetchData(answer.current.value);
   };
-  
+
   return (
     <>
-      <form
-        onSubmit={() => {
-          this.sendData();
-        }}
-      >
-        <div className="field-container">
-          <div className="input-field-container">
-            <input name="inputName" type={type} required></input>
-            <label>{label}</label>
-          </div>
+      <div className={containerClassName}>
+        <div className={fieldClassName}>
+          <input
+            ref={answer}
+            onChange={setAnswer}
+            name="inputName"
+            type={type}
+            required
+          ></input>
+          <label>{label}</label>
         </div>
-      </form>
+      </div>
     </>
   );
 }

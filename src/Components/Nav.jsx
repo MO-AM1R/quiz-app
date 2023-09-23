@@ -1,10 +1,23 @@
 import React from "react";
 import { Link as ScrollLink } from "react-scroll";
-import { Link } from "react-router-dom";
-import "./Nav.css";
+import { Link, useNavigate } from "react-router-dom";
 import AddQuizIcon from "./AddQuizIcon";
+import "./Nav.css";
 
 function Nav(props) {
+  const navigator = useNavigate();
+
+  const handlePages = () => {
+    if (props.isLoged) {
+      navigator("/add_quiz", {
+        state: {
+          email: props.email,
+        },
+      });
+    } else {
+      navigator("/register");
+    }
+  };
   return (
     <>
       <div id="home" className="nav">
@@ -31,11 +44,9 @@ function Nav(props) {
           <ul>
             <li className="add-quiz">
               {props.user != "student" ? (
-                <>
-                  <AddQuizIcon
-                    toPage={props.isLoged ? "/add_quiz" : "/register"}
-                  />
-                </>
+                <div onClick={handlePages}>
+                  <AddQuizIcon />
+                </div>
               ) : (
                 <></>
               )}
