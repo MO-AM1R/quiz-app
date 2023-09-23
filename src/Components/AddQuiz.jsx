@@ -1,24 +1,25 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import FirstStep from "./FirstStep";
 import MakeQuiz from "./MakeQuiz.jsx";
-import { getInstructor } from "../firebase/instructors";
 import "./AddQuiz.css";
 
-function AddQuiz(props) {
+function AddQuiz() {
   const location = useLocation();
+  const instructorName = location.state.name;
+
   const errorMessage = useRef();
-  const instructor = getInstructor(location.state.email.toString());
-  const name = instructor.Name.toString();
+
   const [number, setNumber] = useState(0);
   const [category, setCategory] = useState("");
   const [fetched, setFetched] = useState(false);
   const [index, setIndex] = useState(0);
+
   const [quiz, setQuiz] = useState({
     Answers: new Array(number),
     Category: category,
     Correct_Answers: new Array(number),
-    Instructor: name,
+    Instructor: instructorName,
     Question_Count: number,
     Questions: new Array(number),
   });
@@ -58,7 +59,7 @@ function AddQuiz(props) {
 
   const makeQuiz = () => {
     console.log(number);
-    if (number == 0 || category == "") {
+    if (number === 0 || category === "") {
       errorMessage.current.style.display = "block";
       setTimeout(() => {
         errorMessage.current.style.display = "none";

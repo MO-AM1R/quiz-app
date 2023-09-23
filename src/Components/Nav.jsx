@@ -11,7 +11,7 @@ function Nav(props) {
     if (props.isLoged) {
       navigator("/add_quiz", {
         state: {
-          email: props.email,
+          name: props.instructorName,
         },
       });
     } else {
