@@ -16,7 +16,7 @@ function InstructorHome(props) {
   const [instructorQuizzes, setInstructorQuizzes] = useState([]);
   const [instructorId, setInstructorId] = useState("");
   const [instructorName, setInstructorName] = useState("");
-
+  
   useEffect(() => {
     async function fetchData() {
       try {

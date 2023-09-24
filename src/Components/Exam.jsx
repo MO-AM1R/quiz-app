@@ -10,6 +10,8 @@ function Exam() {
   const [index, setIndex] = useState(0);
   const [choosed, setChoosed] = useState(false);
   const [currentScore, setCurrentScore] = useState(0);
+  const [correctAnswers, setCorrectAnswers] = useState(0);
+  const [wrongAnswers, setWrongAnswers] = useState(0);
   const [examEnd, setExamEnd] = useState(false);
   const [examStart, setExamStart] = useState(false);
   const nextButton = useRef(null);
@@ -38,7 +40,13 @@ function Exam() {
     setChoosed(true);
   };
 
-  const answerSelected = () => {
+  const answerSelected = (correct) => {
+    if (correct) {
+      increamentScore();
+      setCorrectAnswers(correctAnswers + 1);
+    } else {
+      setWrongAnswers(wrongAnswers + 1);
+    }
     endTime();
     setChoosed(true);
     toggleDisaple();
@@ -87,6 +95,8 @@ function Exam() {
               </div>
               {examEnd ? (
                 <Score
+                  wrongAnswers={wrongAnswers}
+                  correctAnswers={correctAnswers}
                   score={currentScore}
                   questionCount={exam.Question_Count}
                 />

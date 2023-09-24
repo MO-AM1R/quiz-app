@@ -3,7 +3,7 @@ import "./Score.css";
 import { AiTwotoneCrown } from "react-icons/ai";
 import history from "../history";
 
-function Score({ score, questionCount }) {
+function Score({ score, questionCount, wrongAnswers, correctAnswers }) {
   const exit = () => {
     history.back();
   };
@@ -19,10 +19,10 @@ function Score({ score, questionCount }) {
             Total Questions: <span>{questionCount}</span>
           </div>
           <div className="true-answers">
-            Correct Answers: <span>{score / questionCount}</span>
+            Correct Answers: <span>{correctAnswers}</span>
           </div>
           <div className="false-answers">
-            Wrong Answers: <span>{questionCount - score / questionCount}</span>
+            Wrong Answers: <span>{wrongAnswers}</span>
           </div>
           <div className="score-value">
             Your Score: <span>{score}%</span>

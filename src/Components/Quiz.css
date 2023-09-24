@@ -30,8 +30,7 @@
 }
 
 .quiz-question-count,
-.delete-btn-container,
-.edit-btn-container {
+.delete-btn-container {
   font-size: 0.8rem;
   font-weight: bold;
   border-radius: 1rem;
@@ -48,8 +47,7 @@
   justify-content: space-between;
 }
 
-.delete-btn-container,
-.edit-btn-container {
+.delete-btn-container {
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -57,8 +55,7 @@
   cursor: pointer;
 }
 
-.delete-btn,
-.edit-btn {
+.delete-btn {
   cursor: pointer;
   border: none;
   outline: none;

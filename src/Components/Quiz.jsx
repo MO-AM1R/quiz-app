@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AiTwotoneEdit, AiFillDelete } from "react-icons/ai";
+import { AiFillDelete } from "react-icons/ai";
 import { deleteQuiz } from "../firebase/quizes";
 import { deleteInstructorQuiz } from "../firebase/instructors";
 import "./Quiz.css";
@@ -52,10 +52,6 @@ function Quiz(props) {
                 <div onClick={deletQuiz} className="delete-btn-container">
                   <button className="delete-btn">Delete</button>
                   <AiFillDelete className="icon" />
-                </div>
-                <div className="edit-btn-container">
-                  <button className="edit-btn">Edit</button>
-                  <AiTwotoneEdit className="icon" />
                 </div>
               </div>
             </>

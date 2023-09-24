@@ -7,9 +7,7 @@ function Home() {
   let location = useLocation();
   return (
     <>
-      {!location.state?.logedIn ? (
-        <LogoutHome />
-      ) : location.state.isInstructor ? (
+      {location.state.isInstructor ? (
         <InstructorHome email={location.state.email} />
       ) : (
         <StudentHome email={location.state.email} />

@@ -2,7 +2,6 @@ import db from "./firebaseConfig";
 import {
   collection,
   getDocs,
-  addDoc,
   setDoc,
   doc,
   deleteDoc,
@@ -66,51 +65,8 @@ function getQuiz(id) {
   return quiz;
 }
 
-// async function temp() {
-//   let quiz1 = {
-//     Answers: [],
-//     Category: "s",
-//     Correct_Answers: [],
-//     Instructor: "Ali",
-//     Question_Count: 15,
-//     Questions: [],
-//   };
-
-//   let quiz2 = {
-//     Answers: [],
-//     Category: "g",
-//     Correct_Answers: [],
-//     Instructor: "Ahmed",
-//     Question_Count: 15,
-//     Questions: [],
-//   };
-
-//   let quiz3 = {
-//     Answers: [],
-//     Category: "e",
-//     Correct_Answers: [],
-//     Instructor: "Ali",
-//     Question_Count: 15,
-//     Questions: [],
-//   };
-
-//   let quiz4 = {
-//     Answers: [],
-//     Category: "x",
-//     Correct_Answers: [],
-//     Instructor: "Ahmed",
-//     Question_Count: 15,
-//     Questions: [],
-//   };
-
-//   let q = [quiz1, quiz2, quiz3, quiz4];
-//   for (let index = 6; index <= 9; index++) {
-//     // addQuizzes(index, q[index - 6]);
-//   }
-// }
-
 async function deleteQuiz(id) {
-  await deleteDoc(doc(db, "Quizzes", id));
+  await deleteDoc(doc(db, "Quizzes", id.toString()));
 
   //remove the quiz which it's id
   quizzes = quizzes.filter((quiz) => quiz.id !== id);

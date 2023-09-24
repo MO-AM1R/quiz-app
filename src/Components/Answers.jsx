@@ -42,12 +42,12 @@ function Answers({
 
     if (element.classList.contains(answer)) {
       element.classList.add("true");
-      increamentScore();
+      answerSelected(true);
     } else {
       element.classList.add("wrong");
       selectAnswer(answer);
+      answerSelected(false);
     }
-    answerSelected();
   };
 
   reset = () => {

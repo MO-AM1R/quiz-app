@@ -22,10 +22,10 @@ function DownList({ fetchData, reset }) {
           name="Answers"
           id="Answers"
         >
-          <option value="A">Answer A</option>
-          <option value="B">Answer B</option>
-          <option value="C">Answer C</option>
-          <option value="D">Answer D</option>
+          <option value="a">Answer A</option>
+          <option value="b">Answer B</option>
+          <option value="c">Answer C</option>
+          <option value="d">Answer D</option>
         </select>
       </div>
     </>

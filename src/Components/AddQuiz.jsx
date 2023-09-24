@@ -4,6 +4,7 @@ import FirstStep from "./FirstStep";
 import { MakeQuiz, resetFunc } from "./MakeQuiz.jsx";
 import { addQuiz } from "../firebase/quizes";
 import { addQuizTo } from "../firebase/instructors";
+import history from "../history";
 import Swal from "sweetalert2";
 import "./AddQuiz.css";
 
@@ -78,7 +79,6 @@ function AddQuiz() {
   };
 
   const increaseIndex = async () => {
-    console.log(quiz);
     if (number - 1 > index) {
       setIndex(index + 1);
       resetFunc();
@@ -90,6 +90,9 @@ function AddQuiz() {
         title: "Good job!",
         text: "You added new Quiz.",
         icon: "success",
+        confirmButtonColor: "#27005D",
+      }).then(() => {
+        history.back();
       });
     }
   };

@@ -1,24 +1,10 @@
 import React from "react";
 import { Link as ScrollLink } from "react-scroll";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AddQuizIcon from "./AddQuizIcon";
 import "./Nav.css";
 
 function Nav(props) {
-  const navigator = useNavigate();
-
-  const handlePages = () => {
-    if (props.isLoged) {
-      navigator("/add_quiz", {
-        state: {
-          name: props.instructorName,
-          id: props.instructorId,
-        },
-      });
-    } else {
-      navigator("/register");
-    }
-  };
   return (
     <>
       <div id="home" className="nav">
@@ -43,18 +29,28 @@ function Nav(props) {
 
         <div className="post-nav">
           <ul>
-            <li className="add-quiz">
-              {props.user != "student" ? (
-                <div onClick={handlePages}>
-                  <AddQuizIcon />
-                </div>
-              ) : (
-                <></>
-              )}
-            </li>
+            {props.user != "student" && props.isLoged ? (
+              <li className="add-quiz">
+                <>
+                  <Link
+                    className="add-quiz-link"
+                    to={"/add_quiz"}
+                    state={{
+                      name: props.instructorName,
+                      id: props.instructorId,
+                    }}
+                  >
+                    <span>Create Quiz</span>
+                    <AddQuizIcon />
+                  </Link>
+                </>
+              </li>
+            ) : (
+              <></>
+            )}
             <li>
               {!props.isLoged ? (
-                <Link className="link" to={"/login"}>
+                <Link className="login-link" to={"/login"}>
                   Login
                 </Link>
               ) : (
@@ -62,7 +58,10 @@ function Nav(props) {
               )}
             </li>
             <li>
-              <Link className="link" to={!props.isLoged ? "/register" : "/"}>
+              <Link
+                className="signup-link"
+                to={!props.isLoged ? "/register" : "/"}
+              >
                 {!props.isLoged ? "Sign up" : "Logout"}
               </Link>
             </li>

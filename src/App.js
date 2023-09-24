@@ -9,6 +9,7 @@ import Register from "./Components/Register";
 import Home from "./Components/Home.jsx";
 import "./App.css";
 import Exam from "./Components/Exam";
+import LogoutHome from "./Components/LogoutHome";
 
 function App() {
   useEffect(() => {
@@ -24,7 +25,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        <Route path="/" element={<LogoutHome />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/home" element={<Home />}></Route>
