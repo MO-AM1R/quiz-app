@@ -1,7 +1,7 @@
 import React from "react";
-import Nav from "./Nav";
-import BodyHome from "./BodyHome";
-import Footer from "./Footer";
+import Nav from "../Nav bar/Nav";
+import BodyHome from "../Home body/BodyHome";
+import Footer from "../Footer/Footer";
 import "./LogoutHome.css";
 
 function LogoutHome() {

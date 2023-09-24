@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { initializeQuizzes, quizzes } from "../firebase/quizes";
-import { initializeStudents, students } from "../firebase/students";
-import Quizzes from "./Quizzes";
+import { initializeQuizzes, quizzes } from "../../firebase/quizes";
+import { initializeStudents, students } from "../../firebase/students";
+import Quizzes from "../Quizzes/Quizzes";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import "./StudentHomeBody.css";
 

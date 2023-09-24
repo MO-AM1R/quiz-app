@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { InputField} from "./InputField";
-import DownList from "./DownList.jsx";
+import { InputField } from "../Custom input field/InputField";
+import DownList from "../Down list/DownList";
 
 let resetFunc;
 function MakeQuiz({

@@ -1,7 +1,7 @@
 import React from "react";
-import Nav from "./Nav";
-import Footer from "./Footer";
-import StudentHomeBody from "./StudentHomeBody";
+import Nav from "../Nav bar/Nav";
+import Footer from "../Footer/Footer";
+import StudentHomeBody from "../Student body home/StudentHomeBody";
 import "./StudentHome.css";
 
 function StudentHome(props) {

@@ -1,7 +1,7 @@
 import React from "react";
-import "./Score.css";
 import { AiTwotoneCrown } from "react-icons/ai";
-import history from "../history";
+import history from "../../history";
+import "./Score.css";
 
 function Score({ score, questionCount, wrongAnswers, correctAnswers }) {
   const exit = () => {

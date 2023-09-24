@@ -1,10 +1,10 @@
 import React, { useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import FirstStep from "./FirstStep";
-import { MakeQuiz, resetFunc } from "./MakeQuiz.jsx";
-import { addQuiz } from "../firebase/quizes";
-import { addQuizTo } from "../firebase/instructors";
-import history from "../history";
+import IntializeQuiz from "../Intialize quiz/IntializeQuiz";
+import { MakeQuiz, resetFunc } from "../Make quiz page/MakeQuiz";
+import { addQuiz } from "../../firebase/quizes";
+import { addQuizTo } from "../../firebase/instructors";
+import history from "../../history";
 import Swal from "sweetalert2";
 import "./AddQuiz.css";
 
@@ -102,7 +102,7 @@ function AddQuiz() {
       <div className="add-quiz-screen">
         <div className="add-quiz-container">
           {!fetched ? (
-            <FirstStep
+            <IntializeQuiz
               fetchCategory={fetchCategory}
               fetchNumber={fetchNumber}
             />

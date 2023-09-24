@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AiFillDelete } from "react-icons/ai";
-import { deleteQuiz } from "../firebase/quizes";
-import { deleteInstructorQuiz } from "../firebase/instructors";
+import { deleteQuiz } from "../../firebase/quizes";
+import { deleteInstructorQuiz } from "../../firebase/instructors";
 import "./Quiz.css";
 
 function Quiz(props) {

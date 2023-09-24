@@ -1,8 +1,8 @@
 import React from "react";
-import { InputField } from "./InputField";
-import "./FirstStep.css";
+import { InputField } from "../Custom input field/InputField";
+import "./IntializeQuiz.css";
 
-function FirstStep({ fetchNumber, fetchCategory }) {
+function IntializeQuiz({ fetchNumber, fetchCategory }) {
   return (
     <>
       <div className="input-fields">
@@ -25,4 +25,4 @@ function FirstStep({ fetchNumber, fetchCategory }) {
   );
 }
 
-export default FirstStep;
+export default IntializeQuiz;

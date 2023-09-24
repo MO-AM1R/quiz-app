@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { addStudent, checkStudent } from "../firebase/students";
-import { addInstructor, checkInstructor } from "../firebase/instructors";
-import history from "../history";
+import { addStudent, checkStudent } from "../../firebase/students";
+import { addInstructor, checkInstructor } from "../../firebase/instructors";
+import history from "../../history";
 import "./Register.css";
 
 function Register() {
@@ -27,15 +27,15 @@ function Register() {
 
   const check = () => {
     if (
-      passwordField.current.value == "" ||
-      nameField.current.value == "" ||
-      emailField.current.value == "" ||
-      ageField.current.value == "" ||
-      university_jobField.current.value == ""
+      passwordField.current.value === "" ||
+      nameField.current.value === "" ||
+      emailField.current.value === "" ||
+      ageField.current.value === "" ||
+      university_jobField.current.value === ""
     ) {
       return false;
     }
-    if (!instructor && facultyField.current.value == "") {
+    if (!instructor && facultyField.current.value === "") {
       return false;
     }
     return true;
@@ -44,11 +44,11 @@ function Register() {
   async function addInstructorToDb(instructor) {
     instructor.Job = university_jobField.current.value;
     instructor.Quizzes = [];
-    let res = await checkInstructor(instructor);
+    let res = checkInstructor(instructor);
 
     if (res === -1) {
       await addInstructor(instructor);
-      history.push("/");
+      history.replace("/Login");
       history.go();
     } else {
       setError(true);
@@ -63,9 +63,9 @@ function Register() {
     student.University = university_jobField.current.value;
     let res = await checkStudent(student);
 
-    if (res == -1) {
+    if (res === -1) {
       await addStudent(student);
-      history.push("/home");
+      history.replace("/Login");
       history.go();
     } else {
       setError(true);

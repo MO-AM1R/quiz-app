@@ -1,7 +1,7 @@
 import React from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { Link } from "react-router-dom";
-import AddQuizIcon from "./AddQuizIcon";
+import AddQuizIcon from "../AddQuiz icon/AddQuizIcon";
 import "./Nav.css";
 
 function Nav(props) {

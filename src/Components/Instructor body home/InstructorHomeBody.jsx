@@ -1,6 +1,6 @@
 import React from "react";
 import "./InstructorHomeBody.css";
-import Quizzes from "./Quizzes";
+import Quizzes from "../Quizzes/Quizzes";
 
 function InstructorHomeBody({ instructorId, instructorQuizzes }) {
   return (

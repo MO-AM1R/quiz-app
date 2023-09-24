@@ -1,6 +1,5 @@
-import LogoutHome from "./LogoutHome";
-import StudentHome from "./StudentHome";
-import InstructorHome from "./InstructorHome";
+import StudentHome from "../Student home page/StudentHome";
+import InstructorHome from "../Instructor home page/InstructorHome";
 import { useLocation } from "react-router-dom";
 
 function Home() {

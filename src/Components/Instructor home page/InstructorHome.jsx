@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Nav from "./Nav";
-import Footer from "./Footer";
-import InstructorHomeBody from "./InstructorHomeBody.jsx";
+import Nav from "../Nav bar/Nav";
+import Footer from "../Footer/Footer";
+import InstructorHomeBody from "../Instructor body home/InstructorHomeBody";
 import {
   instructors,
   initializeInstructors,
   getInstructor,
-} from "../firebase/instructors";
-import { initializeQuizzes, getQuiz } from "../firebase/quizes";
+} from "../../firebase/instructors";
+import { initializeQuizzes, getQuiz } from "../../firebase/quizes";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import "./InstructorHome.css";
 
@@ -16,7 +16,7 @@ function InstructorHome(props) {
   const [instructorQuizzes, setInstructorQuizzes] = useState([]);
   const [instructorId, setInstructorId] = useState("");
   const [instructorName, setInstructorName] = useState("");
-  
+
   useEffect(() => {
     async function fetchData() {
       try {

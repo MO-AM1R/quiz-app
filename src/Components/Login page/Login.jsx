@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { checkInstructor } from "../firebase/instructors";
-import { checkStudent } from "../firebase/students";
+import { checkInstructor } from "../../firebase/instructors";
+import { checkStudent } from "../../firebase/students";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 

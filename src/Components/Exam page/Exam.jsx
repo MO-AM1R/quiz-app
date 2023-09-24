@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { TimeLine, startAgain, endTime } from "./TimeLine";
-import { Answers, showAnswer, reset, toggleDisaple } from "./Answers.jsx";
-import Score from "./Score";
-import Question from "./Questions";
+import { TimeLine, startAgain, endTime } from "../Quiz timeline/TimeLine";
+import { Answers, showAnswer, reset, toggleDisaple } from "../Answers/Answers";
+import Score from "../Score/Score";
+import Question from "../Question/Questions";
 import "./Exam.css";
 
 function Exam() {
